@@ -1,0 +1,12 @@
+# Standards: 1.2
+---
+# @var packwiz_arch:description: Architecture of the static binary
+packwiz_arch: "{{ 'ARM' if ansible_architecture == 'aarch64' else 'x86' }}"
+
+# @var packwiz_download:description: URL to the archive of the release to install
+packwiz_download: "https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20{{ packwiz_arch }}.zip"
+
+# @var packwiz_force:description: Force reinstallation of binary
+packwiz_force: False
+
+...
