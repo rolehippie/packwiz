@@ -1,5 +1,14 @@
 # Standards: 1.2
 ---
+- name: Install required packages
+  loop:
+    - unzip
+  package:
+    name: "{{ item }}"
+    state: present
+  tags:
+    - packwiz
+
 - name: Check existing install
   register: packwiz_check
   check_mode: False
