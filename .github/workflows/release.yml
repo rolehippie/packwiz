@@ -2,13 +2,14 @@
 name: release
 
 "on":
+  workflow_dispatch:
   schedule:
     - cron: "0 8 * * 1"
-  workflow_dispatch:
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'rolehippie'
 
     steps:
       - name: Checkout source
@@ -23,5 +24,18 @@ jobs:
         with:
           extra_plugins: |
             conventional-changelog-conventionalcommits
+
+      - name: Write buildtime
+        run: date >| .github/RELEASEDATE
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: github@webhippie.de
+          add: .github/RELEASEDATE
+          message: "docs: automated release update [skip ci]"
+          push: true
+          commit: --signoff
 
 ...
