@@ -1,4 +1,4 @@
-# packwiz
+# workspace
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/packwiz)
 [![General Workflow](https://github.com/rolehippie/packwiz/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/packwiz/actions/workflows/general.yml)
@@ -50,7 +50,8 @@ URL to the archive of the release to install
 #### Default value
 
 ```YAML
-packwiz_download: https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20{{
+packwiz_download: 
+  https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20{{ 
   packwiz_arch }}.zip
 ```
 
@@ -67,7 +68,6 @@ packwiz_force: false
 ## Discovered Tags
 
 **_packwiz_**
-
 
 ## Dependencies
 
