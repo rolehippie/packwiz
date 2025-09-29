@@ -10,21 +10,22 @@
 
 - name: Check existing install
   register: packwiz_check
-  check_mode: False
+  check_mode: false
   ansible.builtin.stat:
     path: /usr/bin/packwiz
   tags:
     - packwiz
 
 - name: Download release binary
-  when: not packwiz_check.stat.exists or packwiz_force
+  when:
+    - not packwiz_check.stat.exists or packwiz_force
   ansible.builtin.unarchive:
     src: "{{ packwiz_download }}"
     dest: /usr/bin
     owner: root
     group: root
     mode: u=rwx,g=rx,o=rx
-    remote_src: yes
+    remote_src: true
   tags:
     - packwiz
 
