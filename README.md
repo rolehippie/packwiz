@@ -40,8 +40,7 @@ Architecture of the static binary
 #### Default value
 
 ```YAML
-packwiz_arch: "{{ 'ARM' if ansible_architecture == 'aarch64' or ansible_architecture
-  == 'arm64' else 'x86' }}"
+packwiz_arch: "{{ 'ARM' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'x86' }}"
 ```
 
 ### packwiz_download
@@ -51,9 +50,7 @@ URL to the archive of the release to install
 #### Default value
 
 ```YAML
-packwiz_download: 
-  https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20{{ 
-  packwiz_arch }}.zip
+packwiz_download: https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20{{ packwiz_arch }}.zip
 ```
 
 ### packwiz_force
