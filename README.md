@@ -40,7 +40,7 @@ Architecture of the static binary
 #### Default value
 
 ```YAML
-packwiz_arch: "{{ 'ARM' if ansible_architecture == 'aarch64' or ansible_architecture == 'arm64' else 'x86' }}"
+packwiz_arch: "{{ 'ARM' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'x86' }}"
 ```
 
 ### packwiz_download
